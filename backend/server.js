@@ -25,18 +25,45 @@ if (!process.env.JWT_SECRET) {
 
 console.log('JWT_SECRET loaded successfully');
 
-// CORS Configuration
+// CORS Configuration - Production Ready
 const corsOptions = {
-  origin: process.env.FRONTEND_URL || 'https://eco-platform-web.onrender.com',
+  origin: function (origin, callback) {
+    const allowedOrigins = [
+      'https://eco-platform-web.onrender.com',
+      'http://localhost:3000', // Local development
+      process.env.FRONTEND_URL
+    ].filter(Boolean);
+
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      console.warn(`CORS blocked origin: ${origin}`);
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  allowedHeaders: [
+    'Content-Type',
+    'Authorization',
+    'X-Requested-With',
+    'Accept',
+    'Origin'
+  ],
+  exposedHeaders: ['Authorization', 'X-Total-Count'],
+  maxAge: 86400, // 24 hours
   optionsSuccessStatus: 200
 };
 
-// Middleware
+// Apply CORS globally
 app.use(cors(corsOptions));
-app.use(express.json());
+
+// Explicit OPTIONS handler for preflight requests
+app.options('*', cors(corsOptions));
+
+// Middleware
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ limit: '10mb', extended: true }));
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI)
