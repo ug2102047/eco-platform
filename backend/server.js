@@ -25,8 +25,17 @@ if (!process.env.JWT_SECRET) {
 
 console.log('JWT_SECRET loaded successfully');
 
+// CORS Configuration
+const corsOptions = {
+  origin: process.env.FRONTEND_URL || 'https://eco-platform-web.onrender.com',
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  optionsSuccessStatus: 200
+};
+
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // MongoDB Connection

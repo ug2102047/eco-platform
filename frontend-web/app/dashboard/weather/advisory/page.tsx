@@ -18,7 +18,7 @@ function LifestyleAdvisoryContent() {
       setWeatherData(null);
 
       const token = localStorage.getItem('token');
-      const response = await fetch('https://eco-platform-d71a.onrender.com/api/weather/search', {
+      const response = await fetch('https://eco-platform-backend.onrender.com/api/weather/search', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

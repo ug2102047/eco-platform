@@ -68,7 +68,7 @@ export default function CommunityPage() {
   const handlePost = async () => {
     if (newPost.trim() && token) {
       try {
-        const response = await fetch('https://eco-platform-d71a.onrender.com/api/community/posts', {
+        const response = await fetch('https://eco-platform-backend.onrender.com/api/community/posts', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ export default function CommunityPage() {
   const handleLike = async (postId: string) => {
     if (token) {
       try {
-        const response = await fetch(`https://eco-platform-d71a.onrender.com/api/community/posts/${postId}/like`, {
+        const response = await fetch(`https://eco-platform-backend.onrender.com/api/community/posts/${postId}/like`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -120,7 +120,7 @@ export default function CommunityPage() {
   const handleAcceptChallenge = async (challengeId: string) => {
     if (token) {
       try {
-        const response = await fetch('https://eco-platform-d71a.onrender.com/api/community/challenges/accept', {
+        const response = await fetch('https://eco-platform-backend.onrender.com/api/community/challenges/accept', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -151,7 +151,7 @@ export default function CommunityPage() {
     const commentText = commentInputs[postId];
     if (commentText && commentText.trim() && token) {
       try {
-        const response = await fetch(`https://eco-platform-d71a.onrender.com/api/community/posts/${postId}/comment`, {
+        const response = await fetch(`https://eco-platform-backend.onrender.com/api/community/posts/${postId}/comment`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -189,7 +189,7 @@ export default function CommunityPage() {
       if (token) {
         try {
           // Fetch posts
-          const postsResponse = await fetch('https://eco-platform-d71a.onrender.com/api/community/posts', {
+          const postsResponse = await fetch('https://eco-platform-backend.onrender.com/api/community/posts', {
             headers: {
               'Authorization': `Bearer ${token}`
             }
