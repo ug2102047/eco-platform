@@ -1,11 +1,10 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  // eslint অবজেক্টটি সম্পূর্ণ বাদ দেওয়া হয়েছে
 };
 
-module.exports = nextConfig;
+export default nextConfig;
