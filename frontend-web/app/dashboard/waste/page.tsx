@@ -43,7 +43,7 @@ export default function WasteManagementPage() {
     try {
       setLoading(true);
       setError('');
-      const response = await fetch('http://localhost:5000/api/waste');
+      const response = await fetch('https://eco-platform-d71a.onrender.com/api/waste');
       const result = await response.json();
 
       console.log('Waste API Response:', result);

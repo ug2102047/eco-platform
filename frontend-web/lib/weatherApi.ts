@@ -18,7 +18,7 @@ export interface WeatherData {
   };
 }
 
-const API_BASE_URL = 'http://localhost:5000/api/weather';
+const API_BASE_URL = 'https://eco-platform-d71a.onrender.com/api/weather';
 
 export async function searchWeather(city: string): Promise<WeatherData> {
   const token = localStorage.getItem('token');

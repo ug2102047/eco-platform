@@ -40,7 +40,7 @@ export interface DisasterStats {
   totalCount: number;
 }
 
-const API_BASE_URL = 'http://localhost:5000/api/disasters';
+const API_BASE_URL = 'https://eco-platform-d71a.onrender.com/api/disasters';
 
 const getAuthHeaders = () => {
   const token = localStorage.getItem('token');

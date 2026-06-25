@@ -20,7 +20,7 @@ export default function WaterQualityPage() {
   const fetchSavedWaters = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/water-quality/latest', {
+      const response = await fetch('https://eco-platform-d71a.onrender.com/api/water-quality/latest', {
         headers: {
           'Authorization': token ? `Bearer ${token}` : ''
         }
@@ -48,7 +48,7 @@ export default function WaterQualityPage() {
 
       const token = localStorage.getItem('token');
 
-      const response = await fetch('http://localhost:5000/api/water-quality/search', {
+      const response = await fetch('https://eco-platform-d71a.onrender.com/api/water-quality/search', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',

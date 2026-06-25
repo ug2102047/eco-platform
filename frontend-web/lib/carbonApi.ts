@@ -33,7 +33,7 @@ export interface CarbonStats {
   count: number;
 }
 
-const API_BASE_URL = 'http://localhost:5000/api/carbon';
+const API_BASE_URL = 'https://eco-platform-d71a.onrender.com/api/carbon';
 
 const getAuthHeaders = () => {
   const token = localStorage.getItem('token');

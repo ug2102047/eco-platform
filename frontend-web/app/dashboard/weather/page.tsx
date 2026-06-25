@@ -17,7 +17,7 @@ export default function WeatherPage() {
   const fetchSavedWeathers = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/weather/latest', {
+      const response = await fetch('https://eco-platform-d71a.onrender.com/api/weather/latest', {
         headers: {
           'Authorization': token ? `Bearer ${token}` : ''
         }
@@ -45,7 +45,7 @@ export default function WeatherPage() {
 
       const token = localStorage.getItem('token');
 
-      const response = await fetch('http://localhost:5000/api/weather/search', {
+      const response = await fetch('https://eco-platform-d71a.onrender.com/api/weather/search', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',

@@ -22,7 +22,7 @@ function RiskMatrixContent() {
       const token = localStorage.getItem('token');
 
       // Fetch weather data
-      const weatherResponse = await fetch('http://localhost:5000/api/weather/search', {
+      const weatherResponse = await fetch('https://eco-platform-d71a.onrender.com/api/weather/search', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ function RiskMatrixContent() {
       }
 
       // Fetch water data for soil moisture
-      const waterResponse = await fetch('http://localhost:5000/api/water-quality/search', {
+      const waterResponse = await fetch('https://eco-platform-d71a.onrender.com/api/water-quality/search', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
